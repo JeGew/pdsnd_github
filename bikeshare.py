@@ -142,10 +142,8 @@ def user_stats(df):
 
     while True:
         try:
-            #display counts of gender
             ct_gender = df['Gender'].value_counts()
             print('Count of gender:', ct_gender)
-            #display earliest, most recent, and most common year of birth
             min_birth_year = df['Birth Year'].min()
             max_birth_year = df['Birth Year'].max()
             mode_birth_year = df['Birth Year'].mode()[0]
