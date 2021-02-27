@@ -98,18 +98,12 @@ def station_stats(df):
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
-
-    #display most commonly used start station
     st_station_mode = df['Start Station'].mode()[0]
 
     print('Most common start station:', st_station_mode)
-
-    #display most commonly used end station
     end_station_mode = df['End Station'].mode()[0]
 
     print('Most common end station:', end_station_mode)
-
-    #display most frequent combination of start station and end station trip
     df['Start End'] = df['Start Station'].map(str) + ' & ' + df['End Station']
     popular_start_end = df['Start End'].value_counts().idxmax()
 
@@ -123,15 +117,12 @@ def trip_duration_stats(df):
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
-
-    #display total travel time
     sum_traveltime_sec = df['Trip Duration'].sum()
     sum_traveltime_min = sum_traveltime_sec/60
     sum_traveltime_hrs = sum_traveltime_min/60
     print('Total travel time (in seconds):', sum_traveltime_sec)
     print('Total travel time (in minutes):', sum_traveltime_min)
     print('Total travel time (in hours):', sum_traveltime_hrs)
-    #display mean travel time
     mean_traveltime_sec = df['Trip Duration'].mean()
     mean_traveltime_min = mean_traveltime_sec/60
     print('Mean travel time (in seconds):', mean_traveltime_sec)
@@ -146,15 +137,9 @@ def user_stats(df):
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
-
-    #display counts of user types
     ct_users = df['User Type'].value_counts()
     print('Count of user types:', ct_users)
 
-    #if CITY_DATA[city] == CITY_DATA['washington']:
-        #print("\nUnfortunately, for Washington there is no data covering gender and year of birth.")
-    #else:
-    #print(df['Birth Year'].value_counts())
     while True:
         try:
             #display counts of gender
